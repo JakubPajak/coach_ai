@@ -1,5 +1,6 @@
 import 'package:coach_ai/views/home_page.dart';
 import 'package:coach_ai/views/landing_page.dart';
+import 'package:coach_ai/views/profile_page.dart';
 import 'package:coach_ai/views/workout_summary.dart';
 import 'package:flutter/material.dart';
 
@@ -63,8 +64,9 @@ class MyApp extends StatelessWidget {
         '/landing_page': (context) => const LandingPage(),
         '/home-page': (context) => const HomePage(),
         '/workout-summary': (context) => const WorkoutSummary(),
+        '/profile': (context) => const ProfilePage(),
       },
-      initialRoute: '/workout-summary',
+      initialRoute: '/profile',
     );
   }
 }

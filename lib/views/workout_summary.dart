@@ -20,7 +20,7 @@ class _WorkoutSummaryState extends State<WorkoutSummary> {
         foregroundColor: Colors.white,
         centerTitle: true,
       ),
-      bottomNavigationBar: BottomNavBar(),
+      bottomNavigationBar: MainNavigation(),
       body: ListView.builder(
         itemCount: 1,
         itemBuilder: (BuildContext context, int index) { 
@@ -108,22 +108,22 @@ class _WorkoutSummaryState extends State<WorkoutSummary> {
   }
 
   Widget _statCard(String label, String value) {
-    return Expanded(
-      child: Container(
-        margin: const EdgeInsets.symmetric(horizontal: 6),
-        padding: const EdgeInsets.all(12),
-        decoration: BoxDecoration(
-          color: Colors.white12,
-          borderRadius: BorderRadius.circular(12),
-        ),
-        child: Column(
-          children: [
-            Text(label, style: const TextStyle(color: Colors.white70, fontSize: 12)),
-            const SizedBox(height: 4),
-            Text(value, style: const TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold)),
-          ],
-        ),
+    return Container(
+      width: 100, // lub MediaQuery.of(context).size.width / 3.5
+      margin: const EdgeInsets.symmetric(horizontal: 6),
+      padding: const EdgeInsets.all(12),
+      decoration: BoxDecoration(
+        color: Colors.white12,
+        borderRadius: BorderRadius.circular(12),
+      ),
+      child: Column(
+        children: [
+          Text(label, style: const TextStyle(color: Colors.white70, fontSize: 12)),
+          const SizedBox(height: 4),
+          Text(value, style: const TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold)),
+        ],
       ),
     );
   }
+
 }

@@ -1,49 +1,47 @@
 import 'package:coach_ai/views/home_page.dart';
+import 'package:coach_ai/views/profile_page.dart';
+import 'package:coach_ai/views/workout_summary.dart';
 import 'package:flutter/material.dart';
 
-class BottomNavBar extends StatefulWidget {
-  const BottomNavBar({super.key});
+
+class MainNavigation extends StatefulWidget {
+  const MainNavigation({super.key});
 
   @override
-  State<BottomNavBar> createState() => _BottomNavBarState();
+  State<MainNavigation> createState() => _MainNavigationState();
 }
 
-class _BottomNavBarState extends State<BottomNavBar> {
+class _MainNavigationState extends State<MainNavigation> {
   int _selectedIndex = 0;
 
-  final List<Widget> _screens = [
-    HomePage(),     // <- Twój ekran główny
-    // StatsPage(),    // <- Statystyki treningowe
-    // ProfilePage(),  // <- Profil użytkownika
+  final List<Widget> _pages = const [
+    HomePage(),
+    WorkoutSummary(),
+    ProfilePage(),
   ];
 
   void _onItemTapped(int index) {
-    setState(() {
-      _selectedIndex = index;
-    });
+    setState(() => _selectedIndex = index);
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: _screens[_selectedIndex],
+      body: _pages[_selectedIndex],
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _selectedIndex,
         onTap: _onItemTapped,
-        selectedItemColor: Colors.amber,
-        unselectedItemColor: Colors.grey,
-        backgroundColor: Colors.white,
         items: const [
           BottomNavigationBarItem(
-            icon: Icon(Icons.home),
+            icon: Icon(Icons.home_rounded),
             label: 'Home',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.bar_chart),
+            icon: Icon(Icons.bar_chart_rounded),
             label: 'Stats',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.person),
+            icon: Icon(Icons.person_rounded),
             label: 'Profile',
           ),
         ],

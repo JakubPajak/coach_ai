@@ -12,22 +12,19 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: BottomNavBar(),
-      body: ListView.builder(
-        itemBuilder: (BuildContext context, int index) { 
-          return Container(
-          decoration: BoxDecoration(color: Color.fromRGBO(18, 40, 56, 1)),
-          padding: EdgeInsets.symmetric(vertical: 35, horizontal: 20),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                'Hey Jakub! It looks your recovery is going great!',
-                style: Theme.of(context)
-                    .textTheme
-                    .titleLarge
-                    ?.copyWith(color: Colors.white),
-              ),
+      bottomNavigationBar: MainNavigation(),
+      body: SingleChildScrollView(
+        padding: EdgeInsets.symmetric(vertical: 35, horizontal: 20),
+        child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            'Hey Jakub! It looks your recovery is going great!',
+            style: Theme.of(context)
+                .textTheme
+                .titleLarge
+                ?.copyWith(color: Colors.white),
+          ),
               SizedBox(height: 40),
               Text(
                 'Last week summary',
@@ -114,8 +111,6 @@ class _HomePageState extends State<HomePage> {
               SizedBox(height: 20,),
             ],
           ),
-          );
-        },
       ),
     );
   }
